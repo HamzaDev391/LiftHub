@@ -1,0 +1,82 @@
+22. Product Expansion Strategy
+
+LiftHub V1 intentionally focuses on delivering an exceptional workout tracking experience for individual Members. Future expansion should build upon this stable foundation without requiring major architectural redesign.
+
+Expansion should occur incrementally, with each phase introducing a clearly defined capability while preserving the simplicity of the core product.
+
+## 22.1 Expansion Principles
+
+EP-01
+Member experience remains the highest priority. New functionality must never degrade the speed or usability of workout logging.
+
+EP-02
+Future roles (Trainer and Gym Owner) should extend the existing platform rather than replace it.
+
+EP-03
+Business logic should remain modular so that new capabilities can be introduced without affecting existing Member workflows.
+
+EP-04
+Existing workout data, history, routines, and statistics must remain compatible across future versions.
+
+EP-05
+Database schema, authorization rules, and navigation should be designed to accommodate additional roles while keeping V1 Member-only.
+
+## 22.2 Planned Expansion Phases
+
+Phase 1 — Member (V1)
+
+Focus:
+• Fast workout tracking
+• Workout templates
+• Progress tracking
+• Personal records
+• Statistics
+
+Primary Goal:
+Become a dependable daily workout tracker.
+
+---
+
+Phase 2 — Trainer
+
+Potential capabilities:
+
+• Trainer accounts
+• Client management
+• Assign workout plans
+• Progress monitoring
+• Shared workout visibility
+• Client performance analytics
+
+Primary Goal:
+Enable trainers to coach multiple Members using the LiftHub platform.
+
+---
+
+Phase 3 — Gym Owner
+
+Potential capabilities:
+
+• Member management
+• Trainer management
+• Membership administration
+• Attendance tracking
+• Equipment management
+• Operational analytics
+• Business dashboard
+
+Primary Goal:
+Provide gyms with operational management tools built on the same platform.
+
+## 22.3 Expansion Constraints
+
+Future features should not:
+
+• Increase workout logging friction.
+• Introduce unnecessary complexity into the Member experience.
+• Require breaking database migrations whenever reasonably avoidable.
+• Violate existing Product Principles.
+
+Design Impact:
+
+Future role-based expansion should be supported through scalable authorization, role management, and database ownership models rather than separate applications.
