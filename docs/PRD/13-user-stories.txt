@@ -1,0 +1,27 @@
+13. User Stories
+
+Organized by feature area, written in standard As a [user], I want [capability], so that [benefit] form, each tagged with its corresponding FR-ID(s) for traceability.
+
+13.1 Authentication & Profile
+US-01: As a new user, I want to sign up with email/password or Google, so that I can start using the app quickly without friction. (FR-AUTH-01, FR-AUTH-02)
+US-02: As a returning user, I want to stay logged in between app opens, so that I don't have to re-authenticate every session. (FR-AUTH-06)
+US-03: As a user, I want to set my preferred units (kg/lb), so that all weights display in a format I understand intuitively. (FR-PROF-01, FR-PROF-02)
+13.2 Routines
+US-04: As a user with an existing training split, I want to build a reusable routine, so that I don't have to reselect the same exercises every session. (FR-ROUT-01)
+US-05: As a user, I want to duplicate a routine and tweak it, so that I can create variants (e.g., "Push A" vs "Push B") without starting over. (FR-ROUT-06)
+US-06: As a user without a saved routine, I want to start a freeform session and add exercises as I go, so that I'm not blocked from logging just because I haven't built a routine yet. (FR-ROUT-07)
+13.3 Workout Session (Core)
+US-07: As a user mid-set, I want to log weight and reps in as few taps as possible, so that I don't lose focus or waste time between sets. (FR-SESS-03, P1)
+US-08: As a user about to attempt a lift, I want to instantly see what I lifted last time for this exercise, so that I can make an informed decision about today's weight. (FR-SESS-04, G2)
+US-09: As a user training with no gym wifi, I want my sets to save locally and sync later, so that I never lose data because of connectivity. (FR-SESS-11, P4, P5)
+US-10: As a user who made a data-entry mistake, I want to edit or delete a logged set within my active session, so that my record stays accurate. (FR-SESS-09, FR-SESS-10)
+US-11: As a user whose app crashed mid-workout, I want my in-progress session and everything logged so far to still be there when I reopen the app, so that I don't lose an entire workout's data. (FR-SESS-12, P5)
+13.4 History & Progress
+US-12: As a user, I want to browse my past workouts, so that I can review my training history over time. (FR-HIST-01, FR-HIST-02)
+US-13: As a user, I want to see every past instance of a specific exercise, so that I can track how it's progressed specifically. (FR-HIST-03)
+US-14: As a user, I want the app to automatically tell me when I hit a new personal record, so that I don't have to manually track my own bests. (FR-PR-01, FR-PR-05, G4)
+US-15: As a beginner user, I want a simple default stats view, so that I'm not overwhelmed with data I don't yet care about. (FR-STAT-03, Persona A)
+US-16: As an experienced user, I want to dig into volume trends and exercise frequency, so that I can analyze my training with more rigor. (FR-STAT-03, Persona B)
+13.5 Settings
+US-17: As a privacy-conscious user, I want to permanently delete my account and data, so that I have full control over my information. (FR-SET-03, FR-SET-04, NFR-SEC-04)
+US-18: As a user who works out at night, I want dark mode, so that the app is comfortable to use in low light. (FR-SET-01)
