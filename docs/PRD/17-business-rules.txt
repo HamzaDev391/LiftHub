@@ -1,0 +1,13 @@
+17. Business Rules
+
+Consolidated, explicit rules — some restated from earlier sections for a single reference point, others newly surfaced. This section exists specifically because P9 ("explicit over implicit") demands these not be left scattered or assumed.
+
+#	Rule
+BR-01	A user can have only one active workout session at a time (16.1).
+BR-02	A workout session, once finished, is immutable in its core logged data (sets cannot be edited after the session is finished) — Open Question: should users be able to edit a finished session's data (e.g., fix a typo noticed the next day)? Original FRs only cover editing during an active session (FR-SESS-09). Recommend allowing edits post-finish too, since data-entry mistakes don't only happen mid-workout, but this needs your confirmation as it affects PR recalculation logic (16.2) triggering retroactively.
+BR-03	Custom exercises (if approved, FR-EXLIB-04) are private per-user, never shared across accounts (FR-EXLIB-05).
+BR-04	Deleting a routine does not delete any past session that was based on it — sessions are independent historical records once created, not live references to the routine (routines are templates, not sources of truth for history).
+BR-05	Deleting a custom exercise that has historical sets logged against it — Open Question: block deletion, or soft-delete/archive it so history remains intact? Recommend soft-delete/archive (hide from picker, but preserve for historical display), since hard-deleting would corrupt past session records. Flagging for confirmation.
+BR-06	Account deletion (FR-SET-03) cascades to delete all user-owned data: profile, routines, sessions, sets, custom exercises — no orphaned data remains.
+BR-07	Unit preference (kg/lb) is a display-layer setting only — underlying stored values use a single canonical unit (recommend: store in kg, convert for display), so switching preference never requires re-entering or mutating historical data (FR-SET-02).
+BR-08	PRs and Statistics are always computed from finished sessions only — an active (in-progress) session's sets do not count toward PRs/stats until the session is finished, avoiding partial/misleading mid-workout stat updates.
