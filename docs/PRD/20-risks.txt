@@ -1,0 +1,26 @@
+20. Risks
+
+The following risks could negatively impact product quality, user experience, implementation effort, or long-term maintainability.
+
+ID	Risk	Likelihood	Impact	Mitigation
+
+R-01	Scope creep caused by adding non-core fitness features.	High	High	Enforce Product Principles (Section 8) and Non-Goals (Section 10).
+
+R-02	Offline synchronization bugs resulting in duplicate or missing workout data.	Medium	High	Local-first persistence, comprehensive sync testing, and conflict-resolution strategy.
+
+R-03	Poor workout logging UX increasing friction during active sessions.	Medium	High	Validate every screen against the "During Workout Principle."
+
+R-04	Inaccurate PR or Statistics calculations reducing user trust.	Medium	High	Keep calculation logic isolated, deterministic, and fully unit tested.
+
+R-05	Exercise library becoming incomplete for some gyms.	Medium	Medium	Support private custom exercises (pending FR-EXLIB-04 approval).
+
+R-06	Database schema becoming difficult to extend for Trainer and Owner roles.	Low	High	Design ownership and role relationships with future expansion in mind while keeping V1 Member-only.
+
+R-07	Platform-specific review issues delaying app publication.	Low	Medium	Follow App Store and Google Play requirements from the beginning.
+
+R-08	Performance degradation as workout history grows.	Medium	Medium	Use indexing, pagination, and efficient database queries.
+
+R-09	Terminology drift across documentation causing implementation mistakes.	Medium	Medium	Use the Glossary (Section 25) as the single source of terminology.
+
+Design Impact:
+Several risks directly affect future architecture decisions, particularly synchronization, local storage, indexing strategy, and business logic separation.
