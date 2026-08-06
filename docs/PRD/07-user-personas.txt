@@ -1,0 +1,24 @@
+7. User Personas
+
+Two personas to cover the realistic range within the primary segment — deliberately kept to two rather than four or five, since more personas for a single-role V1 mostly add documentation weight without changing feature decisions.
+
+7.1 Persona A — "The Consistent Beginner"
+Attribute	Detail
+Name	Ahmed, 21
+Background	Started lifting 4 months ago, follows a basic push/pull/legs routine he found online
+Training frequency	4x/week
+Current tracking method	Notes app — types weights/reps as free text, has to scroll back through old notes to find last session
+Pain point	Loses time mid-workout scrolling through unstructured notes; sometimes just guesses last week's weight and gets it wrong
+Goal with LiftHub	Wants a simple way to see "what did I lift last time" instantly, and feel confident he's actually progressing
+Relationship to complexity	Wants zero learning curve — should feel obvious immediately, no fitness-app expertise
+7.2 Persona B — "The Structured Intermediate"
+Attribute	Detail
+Name	Sara, 27
+Background	2+ years of consistent training, runs her own program (not coach-assigned), tracks multiple lifts across a weekly split
+Training frequency	5–6x/week
+Current tracking method	Spreadsheet with manual formulas for estimated 1RM and volume tracking
+Pain point	Spreadsheet is powerful but slow and awkward on mobile mid-workout; formulas break occasionally; no dedicated rest timer
+Goal with LiftHub	Wants the analytical rigor of her spreadsheet (accurate PRs, volume trends) but with mobile-native speed and reliability
+Relationship to complexity	Comfortable with more data/stats than Ahmed, but still wants logging itself to be fast — she doesn't want a "spreadsheet app," she wants a fast logger with good stats underneath
+
+Design Impact: These two personas jointly stress-test the same core loop (fast logging + accurate historical reference) but differ mainly in depth of stats consumed after the workout — meaning Statistics/PR features (Section 16) should be discoverable but not front-and-center, since a majority-Ahmed-like user base shouldn't be confronted with spreadsheet-level analytics by default. This suggests a simple/expanded view distinction worth deciding on when we spec the Statistics screen.
