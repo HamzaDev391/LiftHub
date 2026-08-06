@@ -1,0 +1,33 @@
+10. Explicit Non-Goals
+10.1 Purpose of This Section
+
+This is the enforcement mechanism for Product Principle P3 ("one thing done well"). Every item below was explicitly listed in the original brief as not belonging in V1. Restating them here — with reasoning — means any future scope discussion (with you, or with an AI agent proposing a feature) has a documented reference to push back against, rather than relitigating from scratch.
+
+10.2 Non-Goals Table
+Feature	Why It's Excluded from V1	Future Roadmap?
+AI workout generation	Adds significant complexity (recommendation logic, training-science correctness) for a feature that doesn't serve the core logging/history/progress loop; V1 users already know how to build their own routines (per 6.2)	Yes — plausible V2+ feature
+Nutrition tracking	Entirely separate domain (food database, macro tracking); would double the app's scope and dilute the "one thing well" positioning	Yes — long-term ecosystem candidate, not near-term
+Meal planning	Same as above, and dependent on nutrition tracking existing first	Possible, low priority
+Water tracking	Unrelated to resistance-training progress tracking; common feature-creep in fitness apps that adds little to the core value prop	Unlikely — low value relative to complexity
+Sleep tracking	Same reasoning as water tracking; also typically requires wearable integration to be useful, which is itself out of scope	Unlikely
+Social feed	Directly conflicts with P6 (no manufactured engagement) and 2.3; also requires multi-user real-time data, adding real backend complexity (Design Impact in 2.3)	Possible, but should be reconsidered carefully even long-term given P6
+Messaging	Requires real-time infra and a second user role (Trainer) to be meaningful; no use case exists for Member-only V1	Yes — tied to Trainer role rollout
+Friends	Same reasoning as social feed	Possible, low priority
+Coach marketplace	Entirely dependent on Trainer role existing; a business/marketplace feature, not a core product feature	Yes — long-term, tied to 3-role vision (2.5)
+Premium subscriptions	No monetization strategy needed until there's a validated user base; premature for V1	Yes — post-launch business decision
+Challenges	Gamification mechanic — conflicts with P6	Possible, but same caveat as social feed
+Wearable integration	Significant integration complexity (multiple platforms/APIs) for uncertain V1 value; core logging works fully without it	Yes — plausible V2+
+Smartwatch support	Subset of wearable integration; same reasoning	Yes — plausible V2+, likely paired with above
+Supplement tracking	Adjacent to nutrition tracking; same scope-dilution reasoning	Unlikely — low priority
+Gym management	Entirely dependent on Owner role; zero relevance to Member-only V1	Yes — long-term, tied to 3-role vision
+Trainer dashboard	Entirely dependent on Trainer role	Yes — long-term, tied to 3-role vision
+Business analytics	Entirely dependent on Owner role	Yes — long-term, tied to 3-role vision
+10.3 Additional Non-Goal Identified During This PRD
+
+One item surfaced during our own scoping (Section 9.3) that wasn't in the original brief's non-goals list but fits the same pattern:
+
+Feature	Why It's Excluded from V1	Future Roadmap?
+Data export (CSV/PDF/etc.)	Doesn't serve logging/history/progress directly (fails the 9.1 test); format/destination decisions add real scope for a feature with no validated demand yet	Yes — reasonable V1.1 candidate once core app is stable
+10.4 How to Use This Section Going Forward
+
+Per the brief's original instruction: if a feature from this list gets proposed again later (by you, or suggested by an AI coding agent working from this doc), the default response is to point back to this table and ask specifically what's changed — new user data, a validated need, or a shift in strategy — rather than re-arguing the general case each time.
