@@ -1,0 +1,13 @@
+1. Executive Summary (updated)
+
+LiftHub is a mobile-first workout tracking application built with Flutter and a Supabase (PostgreSQL) backend, designed to help everyday gym-goers log workouts, monitor progress, and build training consistency without the friction of notes apps, spreadsheets, or memory.
+
+Core thesis: most workout trackers fail their users by trying to do too much — nutrition, social features, coaching marketplaces — and end up mediocre at the one thing that matters: making it fast and frictionless to log a set mid-workout. LiftHub's V1 does one thing exceptionally well: workout logging and progress tracking for individual lifters.
+
+V1 scope is intentionally narrow and role-limited to a single user type — the Member — with all Trainer and Gym Owner functionality deferred to a documented future roadmap. This constraint is a product decision, not a technical limitation: it forces the team to nail the core loop (start workout → log sets → see progress) before layering in complexity that a two-sided or three-sided marketplace would demand.
+
+Target users are beginner-to-intermediate lifters training 3–6 days a week who want a clean, reliable, low-friction tracker — not competitive powerlifters with specialized programming needs, and not coaches or gym staff.
+
+Strategic intent: LiftHub is a flagship portfolio project intended for production release on both the Google Play Store and Apple App Store, built to professional engineering standards (proper architecture, offline considerations, scalable relational data model) rather than as a tutorial or class project. This PRD, and the ERD/architecture that follow it, are written to be directly consumable by AI coding agents — unambiguous terminology, explicit business rules, and no implicit assumptions — so that implementation can be delegated section-by-section with minimal re-clarification.
+
+Success in V1 means: a user can create an account, build or select a workout routine, log a full session (sets, reps, weight, rest) with minimal taps, and return later to see their history, personal records, and basic trends — reliably and fast enough that it beats a notes app on convenience.
