@@ -15,7 +15,9 @@ State	Description	Transitions
 not_started	No active session exists	→ active (on session start)
 active	Session in progress, sets being logged	→ finished (user completes) or → abandoned (user discards, FR-SESS-13)
 finished	Session marked complete, becomes part of History	Terminal state
-abandoned	Session discarded, not saved to History	Terminal state — Open Question: should abandoned sessions be soft-deleted (kept in DB, hidden from UI) or hard-deleted? Recommend soft-delete for data-recovery safety, but flagging as a decision, not asserting.
+abandoned	abandoned	Session discarded, not saved to History. Soft-deleted per BR-09 (kept in DB, hidden from UI). (DL-006)	Terminal state
+
+Question: should abandoned sessions be soft-deleted (kept in DB, hidden from UI) or hard-deleted? Recommend soft-delete for data-recovery safety, but flagging as a decision, not asserting.
 
 Constraint: Only one session can be active at a time per user (a user cannot run two simultaneous workout sessions) — this is an implicit business rule worth making explicit here for the schema/architecture stage.
 
@@ -42,12 +44,10 @@ Max Weight — highest weight value across all sets ever logged for that exercis
 Estimated 1RM — weight × (1 + reps/30) (Epley formula, pending confirmation per Section 11.7), computed per set, with the maximum value across all sets retained as the PR.
 Max Volume (single session) — for each session, sum weight × reps across all sets of that exercise within that session; the highest such session-sum across all sessions is the PR.
 
-Display rule: When a set is logged that exceeds any existing PR for that exercise, a PR indicator is shown at that moment (FR-SESS-05... correction, FR-PR-05), scoped to whichever specific PR type was broken (e.g., "New Max Weight!" vs. "New Volume PR!") — not a generic "PR!" label, since specificity matters for the user to understand what actually improved.
+Display rule: When a set is logged that exceeds any existing PR for that exercise, a PR indicator is shown at that moment (FR-PR-05), scoped to whichever specific PR type was broken (e.g., "New Max Weight!" vs. "New Volume PR!") — not a generic "PR!" label, since specificity matters for the user to understand what actually improved.
 
 16.3 Statistics — Computation Specification
 Stat	Definition
 Total Workouts	Count of all sessions in finished state
 Workout Frequency	Sessions per week, likely as a rolling average (e.g., last 4 weeks) — Open Question: exact window size
-Current Streak	Pending definition from FR-STAT-04 (Section 11.8 open question)
-Weekly Volume	Sum of weight × reps across all sets, all exercises, within the current calendar week (or rolling 7 days — same open question as frequency)
-Exercise Frequency	Count of sessions containing a given exercise, over a selectable time range
+Current Streak	Current Streak	Number of consecutive calendar weeks with at least one finished session (FR-STAT-04). (DL-003)
