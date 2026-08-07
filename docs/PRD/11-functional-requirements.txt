@@ -32,7 +32,7 @@ FR-PROF-02	Preferred unit setting controls display units app-wide (Workout Sessi
 
 FR-PROF-03	Height/weight fields accept both metric and imperial input depending on unit preference.
 
-FR-PROF-04	Fitness goal and experience level are selected from a predefined list (not free text) — Open Question: exact list values TBD (e.g., goal: "Build Muscle," "Lose Fat," "Get Stronger," "General Fitness"; experience: "Beginner," "Intermediate," "Advanced"). Flagging for your input before ERD.
+FR-PROF-04	Fitness goal and experience level are selected from a predefined list (not free text). Goal values: Build Muscle, Lose Fat, Get Stronger, General Fitness. Experience values: Beginner, Intermediate, Advanced. (DL-010)
 
 FR-PROF-05	Profile fields are optional at signup — user can complete profile after registration, not blocked from using the app if incomplete (P1-style friction avoidance — don't gate core value behind a long form).
 
@@ -46,7 +46,7 @@ FR-EXLIB-02	User can browse/search the exercise library by name, muscle group, o
 
 FR-EXLIB-03	User can view exercise details (instructions) before adding to a routine or session.
 
-FR-EXLIB-04	Open Question: Can users create custom exercises in V1 (not in the built-in library)? Original brief doesn't explicitly say. Recommend: yes, allow custom exercises — real users inevitably do exercises not in any preset list (machine variations differ by gym), and blocking this would break the core logging flow for those cases, conflicting with P1/P3. Flagging as a recommendation, not yet finalized.
+FR-EXLIB-04	Users can create custom exercises in V1, in addition to the built-in library. (DL-001)
 
 FR-EXLIB-05	If custom exercises are approved (FR-EXLIB-04): custom exercises are private to the creating user (not shared/visible to other users) in V1 — avoids moderation/quality-control complexity of a user-generated public library.
 
@@ -98,6 +98,8 @@ FR-SESS-12	If a session is left incomplete (app closed/crashed mid-session), it 
 
 FR-SESS-13	User can abandon/discard an in-progress session (e.g., accidentally started).
 
+FR-SESS-14	User can edit a set (weight/reps) within a finished session, not just an active one, to correct data-entry mistakes noticed after the fact. Editing a finished session's sets triggers the same PR/Statistics recalculation as an active-session edit (16.2, BR-02). (DL-009)
+
 11.6 Workout History (FR-HIST)
 
 ID	Requirement
@@ -118,7 +120,7 @@ FR-PR-01	System automatically computes, per exercise: highest weight lifted (at 
 
 FR-PR-02	PRs are recalculated automatically whenever a new set is logged or an existing set is edited/deleted (no manual recalculation trigger).
 
-FR-PR-03	Estimated 1RM is computed using a standard formula — Open Question: which formula (Epley, Brzycki, etc.)? Recommend Epley formula (1RM = weight × (1 + reps/30)) as the industry-common default; flagging for your confirmation since this is a factual/business-rule decision, not a UX judgment call.
+FR-PR-03	Estimated 1RM is computed using the Epley formula: 1RM = weight × (1 + reps/30). Only computed/displayed for sets with ≤15 reps (see EC-09, DL-011). (DL-002)
 
 FR-PR-04	User can view their PR for a given exercise directly from that exercise's detail/history view (FR-HIST-03), not just a separate global PR screen.
 
@@ -134,7 +136,7 @@ FR-STAT-02	System computes per-exercise frequency (how often a given exercise ap
 
 FR-STAT-03	Statistics default to a "simple" view (per 9.4 decision): total workouts, current streak, recent frequency — with an expandable section for volume trends and per-exercise frequency.
 
-FR-STAT-04	Streak is calculated based on consistency relative to the user's own typical frequency, not a fixed daily requirement — Open Question: exact streak definition (e.g., "at least 1 session per calendar week" vs. a rolling-window definition) needs to be settled explicitly, since this is a business rule, not a UX detail. Flagging for your decision.
+FR-STAT-04	Streak = number of consecutive calendar weeks in which the Member logged at least one finished Workout Session. A week with zero finished sessions breaks the streak. (DL-003)
 
 11.9 Settings (FR-SET)
 
