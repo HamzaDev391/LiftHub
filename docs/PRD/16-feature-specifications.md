@@ -7,6 +7,7 @@ Deep-dive specs for the features with enough nuance to warrant more than an FR t
 Entry points:
 
 From a saved Routine (FR-SESS-01) — pre-populates the session with the routine's exercises (and target set counts, if defined per FR-ROUT-02).
+
 Freeform (FR-ROUT-07) — session starts with zero exercises; user adds them as they go.
 
 Session lifecycle states:
@@ -24,6 +25,7 @@ Constraint: Only one session can be active at a time per user (a user cannot run
 Set logging behavior:
 
 Each logged set captures: exercise reference, weight, reps, timestamp, and (implicitly) its position/order within that exercise for that session.
+
 "Previous performance" (FR-SESS-04) is defined as: the most recent completed session's sets for that same exercise, shown per-set (e.g., if the user logs Set 2 of Bench Press, they see what they did on Set 2 of Bench Press last time — not just the single best set). Open Question: confirm this "same set number" comparison is the right definition, vs. just showing the last session's entire set list for that exercise for reference. I'd lean toward showing the full previous set list (not just matched-by-position), since program structure (e.g., pyramid sets) doesn't always align set-for-set — flagging for your call.
 
 Rest timer behavior (pending FR-SESS-06 decision):
@@ -33,7 +35,9 @@ If auto-start is confirmed: timer begins immediately when a set is logged, runs 
 Offline behavior:
 
 All session data (session record + all sets) is written to local storage first (P5), with a background sync process pushing to Supabase when connectivity is available.
+
 Sync failures are retried automatically; the user is never blocked from continuing to log because of a failed sync (P4).
+
 16.2 Personal Records — Computation Specification
 
 Trigger: Recomputed on every set create/edit/delete event (FR-PR-02), scoped only to the affected exercise (not a full recalculation of all exercises, for performance).
@@ -41,13 +45,17 @@ Trigger: Recomputed on every set create/edit/delete event (FR-PR-02), scoped onl
 Computed values per exercise:
 
 Max Weight — highest weight value across all sets ever logged for that exercise, regardless of reps.
+
 Estimated 1RM — weight × (1 + reps/30) (Epley formula, pending confirmation per Section 11.7), computed per set, with the maximum value across all sets retained as the PR.
+
 Max Volume (single session) — for each session, sum weight × reps across all sets of that exercise within that session; the highest such session-sum across all sessions is the PR.
 
 Display rule: When a set is logged that exceeds any existing PR for that exercise, a PR indicator is shown at that moment (FR-PR-05), scoped to whichever specific PR type was broken (e.g., "New Max Weight!" vs. "New Volume PR!") — not a generic "PR!" label, since specificity matters for the user to understand what actually improved.
 
 16.3 Statistics — Computation Specification
+
 Stat	Definition
 Total Workouts	Count of all sessions in finished state
 Workout Frequency	Sessions per week, likely as a rolling average (e.g., last 4 weeks) — Open Question: exact window size
 Current Streak	Current Streak	Number of consecutive calendar weeks with at least one finished session (FR-STAT-04). (DL-003)
+

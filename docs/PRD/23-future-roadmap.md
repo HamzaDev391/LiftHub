@@ -86,3 +86,4 @@ Potential future additions:
 Roadmap Principle:
 
 No roadmap feature should be implemented unless it strengthens LiftHub's primary mission of helping Members train consistently through fast and reliable workout tracking.
+

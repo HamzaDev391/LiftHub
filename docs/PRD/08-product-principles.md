@@ -2,7 +2,8 @@
 
 These are the standing design rules the team (human or AI agent) should apply when making judgment calls not explicitly covered elsewhere in this PRD.
 
-#	Principle	What It Means in Practice
+# Principle	What It Means in Practice
+
 P1	Speed beats completeness during a workout.	If a screen is used during an active session, minimize taps, fields, and decisions. Push optional detail (notes, RPE, etc.) behind secondary interaction, never in the primary flow.
 P2	Show, don't require, historical context.	Previous performance is always visible where relevant (Section 2.4/G2) but never blocks progress — a user can log a set with zero reference to history if they choose.
 P3	One thing done well beats many things done adequately.	Directly from the brief's philosophy. When scoping a feature, ask "does this serve logging, history, or progress?" If not, it's out of V1 (Section 10).
@@ -14,3 +15,4 @@ P8	Prefer the simpler solution unless there's a compelling reason otherwise.	Dir
 P9	Explicit over implicit, everywhere.	Business rules, defaults, and edge-case behavior are stated outright in this document, not left to inference — supports the AI-agent-readability goal (2.6).
 
 Design Impact: P5 in particular has a concrete architectural consequence beyond what's already noted: it implies local persistence (e.g., a local SQLite/drift store on-device) is not just a "nice to have" for offline support but a hard requirement — the app should never hold an in-progress workout only in volatile app memory. Worth flagging clearly for the future architecture doc.
+

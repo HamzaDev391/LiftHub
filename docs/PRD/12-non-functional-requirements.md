@@ -3,32 +3,44 @@
 Numbered NFR-[Area]-[Number].
 
 12.1 Performance (NFR-PERF)
+
 ID	Requirement
 NFR-PERF-01	Logging a set (tap to confirmed local save) completes in under 1 second, regardless of network state — this is a local-write operation, not a network round-trip (ties to FR-SESS-11).
 NFR-PERF-02	App cold-start time to a usable state (able to start a session) should be minimized — Open Question: exact target (e.g., <2s) needs device/benchmark testing; not asserting an unverified number here.
 NFR-PERF-03	Screens showing historical data (History, Statistics) must remain responsive as data grows over months/years of use — implies pagination or lazy-loading strategy at the data layer, not loading full history at once.
+
 12.2 Reliability & Offline (NFR-REL)
+
 ID	Requirement
 NFR-REL-01	Zero data loss for any completed local write, even if the app crashes or is force-closed immediately after (P5).
 NFR-REL-02	All core session flows (FR-SESS-01 through FR-SESS-13) function fully with no network connectivity.
-NFR-REL-03	Sync conflicts (e.g., same session edited on two devices while offline) must resolve without silent data loss — Open Question: exact conflict-resolution strategy (last-write-wins vs. merge) is an architecture-level decision, deferred to the future architecture doc, but flagged here as a requirement that one must exist.
+NFR-REL-03	Sync conflicts (e.g., same session edited on two devices while offline) resolve using last-write-wins at the session level (not field-level merge), based on the most recent local modification timestamp. BR-01 (one active session per user) makes true concurrent-edit conflicts rare in practice. (DL-004)
 NFR-REL-04	Crash-free session rate target: >99% (from Section 5.4).
+
 12.3 Security & Privacy (NFR-SEC)
+
 ID	Requirement
 NFR-SEC-01	Every table containing user-specific data has Row-Level Security enabled in Supabase, scoped to auth.uid() (Section 5.4/EG2).
 NFR-SEC-02	No user can read or write another user's data under any circumstance in V1 (no shared data model yet — 2.3 Design Impact).
 NFR-SEC-03	Passwords are never handled directly by the app — delegated entirely to Supabase Auth.
 NFR-SEC-04	Account deletion (FR-SET-03) results in actual data deletion (or properly anonymized deletion), not just a soft "deactivated" flag — relevant for app store privacy compliance (Apple/Google both require real account deletion capability).
+
 12.4 Compliance & App Store Readiness (NFR-COMP)
+
 ID	Requirement
 NFR-COMP-01	App includes a privacy policy, required by both Apple App Store and Google Play for apps handling user accounts/personal data.
 NFR-COMP-02	Account deletion flow (FR-SET-03/04) meets Apple's requirement that apps allowing account creation must also allow in-app account deletion.
 NFR-COMP-03	App requests only the minimum device permissions necessary for V1 functionality (no unused permission requests, which is both a review-risk and trust issue).
+
 12.5 Accessibility (NFR-ACC)
+
 ID	Requirement
 NFR-ACC-01	Core logging flow (FR-SESS) supports standard OS accessibility features (screen reader labels, adequate tap-target sizing) — particularly relevant since users may be interacting one-handed or with sweaty/gloved hands mid-workout, which is as much a usability issue as a formal accessibility one.
 NFR-ACC-02	Text and UI elements meet reasonable contrast standards, especially relevant given dark mode is a V1 feature (FR-SET-01).
+
 12.6 Maintainability (NFR-MAINT)
+
 ID	Requirement
 NFR-MAINT-01	Codebase follows a feature-based folder structure (core/, features/, shared/) — consistent with existing project conventions.
 NFR-MAINT-02	Business logic (PR calculation, streak calculation, volume calculation) is isolated and unit-testable, independent of UI (EG1/5.4).
+

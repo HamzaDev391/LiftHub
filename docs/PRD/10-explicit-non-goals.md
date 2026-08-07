@@ -1,5 +1,5 @@
 10. Explicit Non-Goals
-10.1 Purpose of This Section
+    10.1 Purpose of This Section
 
 This is the enforcement mechanism for Product Principle P3 ("one thing done well"). Every item below was explicitly listed in the original brief as not belonging in V1. Restating them here — with reasoning — means any future scope discussion (with you, or with an AI agent proposing a feature) has a documented reference to push back against, rather than relitigating from scratch.
 
@@ -22,12 +22,15 @@ Supplement tracking	Adjacent to nutrition tracking; same scope-dilution reasonin
 Gym management	Entirely dependent on Owner role; zero relevance to Member-only V1	Yes — long-term, tied to 3-role vision
 Trainer dashboard	Entirely dependent on Trainer role	Yes — long-term, tied to 3-role vision
 Business analytics	Entirely dependent on Owner role	Yes — long-term, tied to 3-role vision
+
 10.3 Additional Non-Goal Identified During This PRD
 
 One item surfaced during our own scoping (Section 9.3) that wasn't in the original brief's non-goals list but fits the same pattern:
 
 Feature	Why It's Excluded from V1	Future Roadmap?
 Data export (CSV/PDF/etc.)	Doesn't serve logging/history/progress directly (fails the 9.1 test); format/destination decisions add real scope for a feature with no validated demand yet	Yes — reasonable V1.1 candidate once core app is stable
+
 10.4 How to Use This Section Going Forward
 
 Per the brief's original instruction: if a feature from this list gets proposed again later (by you, or suggested by an AI coding agent working from this doc), the default response is to point back to this table and ask specifically what's changed — new user data, a validated need, or a shift in strategy — rather than re-arguing the general case each time.
+

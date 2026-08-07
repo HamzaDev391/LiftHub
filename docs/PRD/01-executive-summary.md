@@ -11,3 +11,4 @@ Target users are beginner-to-intermediate lifters training 3–6 days a week who
 Strategic intent: LiftHub is a flagship portfolio project intended for production release on both the Google Play Store and Apple App Store, built to professional engineering standards (proper architecture, offline considerations, scalable relational data model) rather than as a tutorial or class project. This PRD, and the ERD/architecture that follow it, are written to be directly consumable by AI coding agents — unambiguous terminology, explicit business rules, and no implicit assumptions — so that implementation can be delegated section-by-section with minimal re-clarification.
 
 Success in V1 means: a user can create an account, build or select a workout routine, log a full session (sets, reps, weight, rest) with minimal taps, and return later to see their history, personal records, and basic trends — reliably and fast enough that it beats a notes app on convenience.
+

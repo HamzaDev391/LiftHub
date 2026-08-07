@@ -35,3 +35,4 @@ Profile	The collection of personal preferences and fitness information associate
 Design Impact:
 
 This glossary serves as the authoritative source of terminology for all future documentation, database design, architecture, UI design, and implementation. New terminology should be introduced only when necessary and added here to maintain consistency across the project.
+

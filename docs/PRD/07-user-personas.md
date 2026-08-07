@@ -1,6 +1,5 @@
 7. User Personas
-
-Two personas to cover the realistic range within the primary segment — deliberately kept to two rather than four or five, since more personas for a single-role V1 mostly add documentation weight without changing feature decisions.
+   Two personas to cover the realistic range within the primary segment — deliberately kept to two rather than four or five, since more personas for a single-role V1 mostly add documentation weight without changing feature decisions.
 
 7.1 Persona A — "The Consistent Beginner"
 Attribute	Detail
@@ -11,6 +10,7 @@ Current tracking method	Notes app — types weights/reps as free text, has to sc
 Pain point	Loses time mid-workout scrolling through unstructured notes; sometimes just guesses last week's weight and gets it wrong
 Goal with LiftHub	Wants a simple way to see "what did I lift last time" instantly, and feel confident he's actually progressing
 Relationship to complexity	Wants zero learning curve — should feel obvious immediately, no fitness-app expertise
+
 7.2 Persona B — "The Structured Intermediate"
 Attribute	Detail
 Name	Sara, 27
@@ -22,3 +22,4 @@ Goal with LiftHub	Wants the analytical rigor of her spreadsheet (accurate PRs, v
 Relationship to complexity	Comfortable with more data/stats than Ahmed, but still wants logging itself to be fast — she doesn't want a "spreadsheet app," she wants a fast logger with good stats underneath
 
 Design Impact: These two personas jointly stress-test the same core loop (fast logging + accurate historical reference) but differ mainly in depth of stats consumed after the workout — meaning Statistics/PR features (Section 16) should be discoverable but not front-and-center, since a majority-Ahmed-like user base shouldn't be confronted with spreadsheet-level analytics by default. This suggests a simple/expanded view distinction worth deciding on when we spec the Statistics screen.
+

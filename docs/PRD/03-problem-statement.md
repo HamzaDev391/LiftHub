@@ -1,7 +1,6 @@
 3. Problem Statement
-3.1 The Problem
-
-Gym-goers who want to train with progressive overload — the core principle of getting stronger over time by tracking and gradually increasing weight, reps, or volume — currently rely on tools that were not built for this purpose:
+   3.1 The Problem
+   Gym-goers who want to train with progressive overload — the core principle of getting stronger over time by tracking and gradually increasing weight, reps, or volume — currently rely on tools that were not built for this purpose:
 
 Method	Core Failure
 Memory	Unreliable beyond a few sessions; users misremember previous weights, leading to stalled or inconsistent progression.
@@ -9,6 +8,7 @@ Paper notebooks	No structure, easy to lose, no historical search ("what did I be
 Generic notes apps	No structure, no computed stats (PRs, volume, trends), slow to navigate mid-workout, not designed for repeated structured entry.
 Spreadsheets	Better structure than notes, but poor mobile UX for fast entry, not designed for one-handed/gym use, no offline-first mobile experience, manual formula maintenance.
 Existing tracker apps	Often bloated with unrelated features (social feeds, nutrition, coaching upsells) that add friction to the core logging flow the user actually needs.
+
 3.2 Why This Matters
 
 Progressive overload requires accurate, accessible historical data at the exact moment of the next lift. If a user doesn't know they benched 60kg × 8 last week, they can't make an informed decision to attempt 62.5kg this week. Poor tracking tools don't just inconvenience users — they directly undermine the training principle the app exists to support.
@@ -22,3 +22,4 @@ Most tools are designed as if the user were sitting at a desk with full attentio
 3.4 Problem Statement (Concise Form)
 
 Gym-goers who want to train consistently and progressively overload lack a fast, structured, reliable, distraction-free way to log workouts and instantly reference their own historical performance data at the point of decision-making — mid-set, mid-workout.
+

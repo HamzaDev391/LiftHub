@@ -1,151 +1,95 @@
 11. Functional Requirements
 
-
-
 Numbered as FR-[Area]-[Number] for clean cross-referencing from future ERD/architecture docs and AI-agent task delegation.
 
 11.1 Authentication (FR-AUTH)
 
 ID	Requirement
-
 FR-AUTH-01	User can register an account using email + password via Supabase Auth.
-
 FR-AUTH-02	User can sign in using Google Sign-In (OAuth via Supabase Auth).
-
 FR-AUTH-03	User can log out from Settings.
-
 FR-AUTH-04	User can reset a forgotten password via email.
-
 FR-AUTH-05	On first successful sign-up, a corresponding row is created in the profiles table with role = member (Section 2.5).
-
 FR-AUTH-06	Session persists across app restarts until explicit logout (no forced re-login on every launch).
-
 FR-AUTH-07	Auth state changes (login/logout) are reflected app-wide without requiring an app restart.
 
 11.2 User Profile (FR-PROF)
 
 ID	Requirement
-
 FR-PROF-01	User can set/edit: name, height, weight, fitness goal, experience level, preferred units (kg/lb).
-
 FR-PROF-02	Preferred unit setting controls display units app-wide (Workout Session, History, Statistics, PRs).
-
 FR-PROF-03	Height/weight fields accept both metric and imperial input depending on unit preference.
-
 FR-PROF-04	Fitness goal and experience level are selected from a predefined list (not free text). Goal values: Build Muscle, Lose Fat, Get Stronger, General Fitness. Experience values: Beginner, Intermediate, Advanced. (DL-010)
-
 FR-PROF-05	Profile fields are optional at signup — user can complete profile after registration, not blocked from using the app if incomplete (P1-style friction avoidance — don't gate core value behind a long form).
 
 11.3 Exercise Library (FR-EXLIB)
 
 ID	Requirement
-
 FR-EXLIB-01	App ships with a built-in library of exercises, each with: name, primary muscle group, equipment required, instructions/description.
-
 FR-EXLIB-02	User can browse/search the exercise library by name, muscle group, or equipment.
-
 FR-EXLIB-03	User can view exercise details (instructions) before adding to a routine or session.
-
 FR-EXLIB-04	Users can create custom exercises in V1, in addition to the built-in library. (DL-001)
-
 FR-EXLIB-05	If custom exercises are approved (FR-EXLIB-04): custom exercises are private to the creating user (not shared/visible to other users) in V1 — avoids moderation/quality-control complexity of a user-generated public library.
 
 11.4 Workout Templates / Routines (FR-ROUT)
 
 ID	Requirement
-
 FR-ROUT-01	User can create a workout routine (a named template) consisting of one or more exercises.
-
 FR-ROUT-02	Each exercise within a routine can have a target/planned number of sets defined (not required — see FR-ROUT-05).
-
 FR-ROUT-03	User can edit an existing routine (add/remove/reorder exercises).
-
 FR-ROUT-04	User can delete a routine.
-
 FR-ROUT-05	Routines do not require pre-planned weight/reps per set — only exercise selection and (optionally) target set count. Actual weight/reps are logged live during the session (per 2.4).
-
 FR-ROUT-06	User can duplicate an existing routine (e.g., to create a variant without starting from scratch).
-
 FR-ROUT-07	A user can start a Workout Session either from a saved routine or with no routine at all (freeform/ad-hoc session, adding exercises as they go) — this must be supported to avoid forcing routine creation as a precondition to logging (P1).
 
 11.5 Workout Session (FR-SESS) — Core Feature
 
 ID	Requirement
-
 FR-SESS-01	User can start a new Workout Session, optionally based on a saved routine.
-
 FR-SESS-02	During an active session, user can add exercises (from the library or a custom exercise) to the session, even if not part of the originating routine.
-
 FR-SESS-03	For each exercise in the session, user can log one or more sets, each with weight and reps.
-
 FR-SESS-04	When logging a set, the user's most recent previous performance for that exact exercise (weight × reps from the last session it was logged in) is displayed automatically, with no extra navigation required (G2, P2).
-
 FR-SESS-05	User can start/view a running workout timer for the overall session duration.
-
 FR-SESS-06	User can start a rest timer after logging a set (manually triggered or auto-started — Open Question: default to auto-start on set completion, or manual trigger? Recommend auto-start with an easy cancel/skip, since it removes a tap during the highest-friction moment — flagging for confirmation).
-
 FR-SESS-07	User can add a free-text note to an individual exercise within a session (e.g., "felt heavy today," "switched grip").
-
 FR-SESS-08	User can mark a session as finished/complete.
-
 FR-SESS-09	User can edit a set (weight/reps) after logging it, within the same active session, in case of a mistake.
-
 FR-SESS-10	User can delete a logged set within an active session.
-
 FR-SESS-11	All writes during an active session (starting session, logging sets, finishing session) must succeed with zero network connectivity, persisting locally and syncing when connectivity returns (P4, P5 — offline-first is non-negotiable for this feature area).
-
 FR-SESS-12	If a session is left incomplete (app closed/crashed mid-session), it must be recoverable on next app open — the in-progress session and all logged sets so far are not lost (P5).
-
 FR-SESS-13	User can abandon/discard an in-progress session (e.g., accidentally started).
-
 FR-SESS-14	User can edit a set (weight/reps) within a finished session, not just an active one, to correct data-entry mistakes noticed after the fact. Editing a finished session's sets triggers the same PR/Statistics recalculation as an active-session edit (16.2, BR-02). (DL-009)
 
 11.6 Workout History (FR-HIST)
 
 ID	Requirement
-
 FR-HIST-01	User can view a chronological list of all completed workout sessions.
-
 FR-HIST-02	User can open a past session to view full detail — every exercise and every set logged, exactly as recorded.
-
 FR-HIST-03	User can view all historical instances of a specific exercise across sessions (e.g., "show me every time I did Bench Press") — this is the data source for FR-SESS-04's "previous performance" lookup.
-
 FR-HIST-04	History is filterable/sortable at minimum by date (most recent first, by default).
 
 11.7 Personal Records (FR-PR)
 
 ID	Requirement
-
 FR-PR-01	System automatically computes, per exercise: highest weight lifted (at any rep count), highest estimated one-rep max (1RM), highest single-session volume (weight × reps summed) for that exercise.
-
 FR-PR-02	PRs are recalculated automatically whenever a new set is logged or an existing set is edited/deleted (no manual recalculation trigger).
-
 FR-PR-03	Estimated 1RM is computed using the Epley formula: 1RM = weight × (1 + reps/30). Only computed/displayed for sets with ≤15 reps (see EC-09, DL-011). (DL-002)
-
 FR-PR-04	User can view their PR for a given exercise directly from that exercise's detail/history view (FR-HIST-03), not just a separate global PR screen.
-
 FR-PR-05	A newly achieved PR is indicated to the user at the moment it's set during a session (e.g., a visual indicator when logging a set that beats a previous best) — ties to positive reinforcement without violating P6 (this is factual recognition of the user's own achievement, not a manufactured engagement mechanic).
 
 11.8 Statistics (FR-STAT)
 
 ID	Requirement
-
 FR-STAT-01	System computes and displays: total workout count, workout frequency (e.g., sessions per week), current streak, weekly training volume.
-
 FR-STAT-02	System computes per-exercise frequency (how often a given exercise appears across sessions).
-
 FR-STAT-03	Statistics default to a "simple" view (per 9.4 decision): total workouts, current streak, recent frequency — with an expandable section for volume trends and per-exercise frequency.
-
 FR-STAT-04	Streak = number of consecutive calendar weeks in which the Member logged at least one finished Workout Session. A week with zero finished sessions breaks the streak. (DL-003)
 
 11.9 Settings (FR-SET)
 
 ID	Requirement
-
 FR-SET-01	User can toggle dark mode.
-
 FR-SET-02	User can change unit preference (kg/lb) after initial profile setup, with historical data displayed converted (not re-entered).
-
 FR-SET-03	User can permanently delete their account, which deletes all associated data (profile, routines, sessions, sets) per data-privacy expectations (ties into NFR/compliance, Section 12).
-
 FR-SET-04	Account deletion requires explicit confirmation (irreversible action safeguard).
+

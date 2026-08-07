@@ -10,10 +10,10 @@ EP-01
 Member experience remains the highest priority. New functionality must never degrade the speed or usability of workout logging.
 
 EP-02
-Future roles (Trainer and Gym Owner) should extend the existing platform rather than replace it.
+Future features should reuse existing workout, exercise, and user data wherever possible rather than creating parallel systems.
 
 EP-03
-Business logic should remain modular so that new capabilities can be introduced without affecting existing Member workflows.
+Each expansion phase should deliver a complete, independently useful capability rather than partially introducing several roles at once.
 
 EP-04
 Existing workout data, history, routines, and statistics must remain compatible across future versions.
@@ -27,42 +27,35 @@ Phase 1 — Member (V1)
 
 Focus:
 • Fast workout tracking
-• Workout templates
-• Progress tracking
+• Workout history
 • Personal records
 • Statistics
+• Offline-first reliability
 
 Primary Goal:
-Become a dependable daily workout tracker.
-
----
+Establish LiftHub as a reliable personal workout tracking tool.
 
 Phase 2 — Trainer
 
-Potential capabilities:
-
+Focus:
 • Trainer accounts
-• Client management
-• Assign workout plans
-• Progress monitoring
-• Shared workout visibility
-• Client performance analytics
+• Member–Trainer relationships
+• Trainer-created workout programs
+• Member assignment and progress visibility
+• Trainer dashboard
+• Trainer-to-member communication
 
 Primary Goal:
-Enable trainers to coach multiple Members using the LiftHub platform.
-
----
+Allow trainers to manage and support clients through LiftHub without disrupting the Member experience.
 
 Phase 3 — Gym Owner
 
-Potential capabilities:
-
-• Member management
+Focus:
+• Gym accounts
+• Gym membership management
 • Trainer management
-• Membership administration
-• Attendance tracking
-• Equipment management
-• Operational analytics
+• Member management
+• Gym-level analytics
 • Business dashboard
 
 Primary Goal:
@@ -74,9 +67,8 @@ Future features should not:
 
 • Increase workout logging friction.
 • Introduce unnecessary complexity into the Member experience.
-• Require breaking database migrations whenever reasonably avoidable.
-• Violate existing Product Principles.
+• Require rewriting the core workout data model.
+• Break existing workout history or statistics.
+• Introduce role-specific functionality into V1 prematurely.
+• Compromise offline-first workout logging.
 
-Design Impact:
-
-Future role-based expansion should be supported through scalable authorization, role management, and database ownership models rather than separate applications.

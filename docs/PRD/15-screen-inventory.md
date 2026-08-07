@@ -1,6 +1,5 @@
 15. Screen Inventory
-
-A flat list of every screen required for V1, grouped by flow area, with purpose and key FR references. This is the handoff point to future UI/UX design and Flutter routing (go_router) structure.
+    A flat list of every screen required for V1, grouped by flow area, with purpose and key FR references. This is the handoff point to future UI/UX design and Flutter routing (go_router) structure.
 
 15.1 Auth & Onboarding
 Screen	Purpose	Key FRs
@@ -8,39 +7,48 @@ Sign Up	Email/password or Google sign-up	FR-AUTH-01, FR-AUTH-02
 Log In	Returning user authentication	FR-AUTH-01, FR-AUTH-02
 Forgot Password	Password reset request	FR-AUTH-04
 Profile Setup (Onboarding)	Optional initial profile fields, skippable	FR-PROF-01, FR-PROF-05
+
 15.2 Core Navigation
 Screen	Purpose	Key FRs
 Home / Dashboard	Entry point after login — start session (routine or freeform), quick glance at recent activity	FR-SESS-01, FR-ROUT-07
+
 15.3 Routines
 Screen	Purpose	Key FRs
 Routine List	View all saved routines	FR-ROUT-01
 Routine Detail / Editor	Create/edit a routine's exercises and target sets	FR-ROUT-01, FR-ROUT-02, FR-ROUT-03
 Exercise Picker (for Routine)	Search/select exercises from library to add to a routine	FR-EXLIB-02, FR-ROUT-01
+
 15.4 Exercise Library
 Screen	Purpose	Key FRs
 Exercise Library List	Browse/search all exercises	FR-EXLIB-01, FR-EXLIB-02
 Exercise Detail	View instructions, muscle group, equipment; view exercise-specific history/PR	FR-EXLIB-03, FR-HIST-03, FR-PR-04
 Add Custom Exercise	Create a user-specific custom exercise (pending FR-EXLIB-04 confirmation)	FR-EXLIB-04, FR-EXLIB-05
+
 15.5 Workout Session (Core)
 Screen	Purpose	Key FRs
 Active Session	Primary logging screen — exercises, sets, timers, previous performance	FR-SESS-01 to FR-SESS-13
 Exercise Picker (In-Session)	Add an exercise mid-session, even if outside the originating routine	FR-SESS-02
-Set Logging Component	Inline within Active Session — not a separate screen, but a distinct reusable UI unit (weight/reps entry + previous-performance display)	FR-SESS-03, FR-SESS-04
+Set Logging Component	Inline within Active Session — not a separate screen, but a distinct reusable UI unit (weight/reps entry + previous-performance display)FR-SESS-03, FR-SESS-04
 Session Summary	Post-finish recap — PRs hit, total volume, duration	FR-SESS-08, FR-PR-05
+
 15.6 History
 Screen	Purpose	Key FRs
 History List	Chronological list of completed sessions	FR-HIST-01, FR-HIST-04
 Session Detail (Historical)	Full read-only view of a past session	FR-HIST-02
+
 15.7 Statistics & PRs
 Screen	Purpose	Key FRs
 Statistics (Simple View)	Default view — total workouts, streak, recent frequency	FR-STAT-01, FR-STAT-03
 Statistics (Expanded View)	Volume trends, exercise frequency breakdown	FR-STAT-02, FR-STAT-03
 Personal Records	Global list of PRs across exercises (supplements exercise-level PR display)	FR-PR-01, FR-PR-04
+
 15.8 Profile & Settings
 Screen	Purpose	Key FRs
 Profile	View/edit personal info	FR-PROF-01 to FR-PROF-04
 Settings	Dark mode, units, logout, delete account	FR-SET-01 to FR-SET-04
 Delete Account Confirmation	Explicit irreversible-action confirmation	FR-SET-04
+
 15.9 Screen Count Summary
 
-19 screens total for V1 (excluding shared/reusable components like the Set Logging Component). This is a reasonable scope for a single-role MVP — worth naming explicitly since screen count is a useful, concrete signal that V1 is appropriately bounded (ties back to G6).
+22 screens total for V1 (excluding shared/reusable components like the Set Logging Component). This is a reasonable scope for a single-role MVP — worth naming explicitly since screen count is a useful, concrete signal that V1 is appropriately bounded (ties back to G6).
+

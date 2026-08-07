@@ -15,4 +15,6 @@ OQ-09	Do stats exclude deleted workouts?	Resolved	Yes, always. See DL-007.
 OQ-10	PR update timing (per-set vs. per-session)?	Resolved	Per-set, immediate (confirms existing 16.2 behavior). See DL-008.
 
 Resolution Policy:
+
 Future open questions follow the same process: propose → discuss → record in Decision Log → update the affected PRD section(s) directly, removing "Open Question" language once resolved.
+

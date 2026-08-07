@@ -1,5 +1,7 @@
 18. Edge Cases
-#	Scenario	Expected Behavior
+
+# Scenario	Expected Behavior
+
 EC-01	User logs a set with 0 weight (bodyweight exercise)	Must be supported — 0 or null weight is valid, not an error (bodyweight exercises like pull-ups are common)
 EC-02	User logs a set with 0 reps	Should likely be blocked/invalid — a set with 0 reps isn't a meaningful data point. Open Question: confirm this should be a hard validation rule.
 EC-03	User has zero workout history and views an exercise's "previous performance"	Show an explicit empty state ("No previous data yet") rather than a blank or broken UI — first-time use of any exercise must degrade gracefully
@@ -10,3 +12,4 @@ EC-07	User deletes a custom exercise that has PRs/history attached to it	Ties to
 EC-08	User force-quits the app mid-set-entry (weight typed but not yet confirmed/saved)	Unsaved, unconfirmed input is acceptable to lose (it was never "logged"); only confirmed saved sets are protected under P5 — worth distinguishing "in-progress typing" from "logged data" explicitly
 EC-09	Estimated 1RM calculation on a set with very high reps (e.g., 50 reps)	Epley formula becomes unreliable at very high rep counts (known limitation of the formula itself) — Open Question: cap the formula's applicable rep range (e.g., only compute 1RM for sets ≤ 12–15 reps, per common practice) or show it regardless with a caveat? Recommend capping and omitting 1RM display beyond a reasonable rep threshold, since a wildly inaccurate estimate is worse than no estimate.
 EC-10	User's very first workout session ever (no PRs exist yet)	Every logged set is technically a "PR" (nothing to compare against) — recommend suppressing PR indicators entirely on a user's first-ever session for that exercise, since "PR" implies improvement over something, not just existence
+

@@ -2,7 +2,8 @@
 
 Consolidated, explicit rules — some restated from earlier sections for a single reference point, others newly surfaced. This section exists specifically because P9 ("explicit over implicit") demands these not be left scattered or assumed.
 
-#	Rule
+# Rule
+
 BR-01	A user can have only one active workout session at a time (16.1).
 BR-02	A workout session, once finished, can still have its logged sets edited or deleted by the Member (FR-SESS-14) to correct data-entry mistakes. Editing a finished session's data triggers PR and Statistics recalculation exactly as it would for an active session (16.2). (DL-009)
 BR-03	Custom exercises (if approved, FR-EXLIB-04) are private per-user, never shared across accounts (FR-EXLIB-05).
@@ -11,3 +12,4 @@ BR-05	Deleting a custom exercise that has historical sets logged against it soft
 BR-06	Account deletion (FR-SET-03) cascades to delete all user-owned data: profile, routines, sessions, sets, custom exercises — no orphaned data remains.
 BR-07	Unit preference (kg/lb) is a display-layer setting only — underlying stored values use a single canonical unit (recommend: store in kg, convert for display), so switching preference never requires re-entering or mutating historical data (FR-SET-02).
 BR-08	PRs and Statistics are always computed from finished sessions only — an active (in-progress) session's sets do not count toward PRs/stats until the session is finished, avoiding partial/misleading mid-workout stat updates. This also means deleted/abandoned sessions never count toward PRs or Statistics, regardless of what data they contained. (DL-007)
+

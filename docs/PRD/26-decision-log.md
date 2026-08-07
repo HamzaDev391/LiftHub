@@ -1,6 +1,11 @@
+26. Decision Log
+
+This section records accepted product decisions that resolve previously open questions or establish new rules during PRD development.
+
 ## Decision Entries
 
 ### DL-001
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 11.3 (FR-EXLIB-04), 6.2, 10, 15.4
@@ -10,6 +15,7 @@ Alternatives Considered: Built-in library only (rejected — too restrictive for
 Design Impact: Custom exercises are private per-user (FR-EXLIB-05, BR-03); no shared/public custom exercise library in V1.
 
 ### DL-002
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 11.7 (FR-PR-03), 16.2, 18 (EC-09)
@@ -19,6 +25,7 @@ Alternatives Considered: Brzycki formula (rejected — no material advantage for
 Design Impact: See DL-011 for the applicable rep-range cap on this formula.
 
 ### DL-003
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 11.8 (FR-STAT-04), 16.3
@@ -28,6 +35,7 @@ Alternatives Considered: Rolling 7-day window (rejected — harder to communicat
 Design Impact: Streak calculation needs only session `finished_at` timestamps grouped by calendar week — no additional schema beyond session records.
 
 ### DL-004
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 12.2 (NFR-REL-03), 17 (BR-01), 18 (EC-06)
@@ -37,6 +45,7 @@ Alternatives Considered: Field-level merge (rejected — meaningfully more compl
 Design Impact: Architecture doc must implement session-level `updated_at`/`modified_at` comparison during sync reconciliation.
 
 ### DL-005
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 11.5 (FR-SESS-07)
@@ -46,6 +55,7 @@ Alternatives Considered: Both levels (rejected — added scope with no validated
 Design Impact: None — confirms existing FR-SESS-07 behavior; no FR changes needed.
 
 ### DL-006
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 17 (BR-05, new BR-09), 16.1, 18 (EC-07)
@@ -55,6 +65,7 @@ Alternatives Considered: Hard delete with cascade (rejected — would corrupt pa
 Design Impact: Exception — full account deletion (FR-SET-03/BR-06) still performs actual hard deletion, required for App Store/Play Store compliance (NFR-SEC-04). Soft-delete applies to individual content items, not full-account deletion.
 
 ### DL-007
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 17 (BR-08), 11.8
@@ -64,6 +75,7 @@ Alternatives Considered: None — this is a direct extension of an already-accep
 Design Impact: Stats/PR queries must filter on session state = finished AND not soft-deleted.
 
 ### DL-008
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 11.7 (FR-PR-02), 16.2
@@ -73,6 +85,7 @@ Alternatives Considered: Batch recomputation at session finish (rejected — del
 Design Impact: None — no FR changes required.
 
 ### DL-009
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 17 (BR-02), 11.5 (new FR-SESS-14), 16.2
@@ -82,6 +95,7 @@ Alternatives Considered: Immutable finished sessions (rejected — too restricti
 Design Impact: New FR-SESS-14 added. PR/stat recalculation logic must trigger on finished-session edits, not just active-session edits.
 
 ### DL-010
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 11.2 (FR-PROF-04)
@@ -91,6 +105,7 @@ Alternatives Considered: None proposed beyond these.
 Design Impact: ERD enum values for `fitness_goal` and `experience_level` fields are now fixed.
 
 ### DL-011
+
 Date: 2026-08-07
 Status: Accepted
 Related Sections: 18 (EC-02, EC-09)
@@ -98,3 +113,4 @@ Decision: (a) A set with 0 reps is invalid and blocked from saving (hard validat
 Rationale: (a) 0 reps isn't a meaningful data point, consistent with EC-01 allowing 0/null weight but not 0 reps. (b) The Epley formula becomes unreliable at high rep counts; a wildly inaccurate estimate is worse than no estimate.
 Alternatives Considered: Allowing 0-rep sets as a placeholder (rejected — no meaningful use case); showing 1RM regardless with a caveat label (rejected — adds UI complexity for a number to be distrusted anyway).
 Design Impact: Set validation logic must enforce reps ≥ 1. PR calculation logic must exclude sets >15 reps from 1RM computation specifically (Max Weight and Max Volume PRs are unaffected by this cap).
+

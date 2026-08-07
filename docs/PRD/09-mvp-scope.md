@@ -1,5 +1,5 @@
 9. MVP Scope
-9.1 Scoping Method
+   9.1 Scoping Method
 
 Every candidate feature from the brief's "Planned V1 Features" list is run through this test, derived from Sections 2.4 and 8 (P3):
 
@@ -19,10 +19,12 @@ Workout History	Previous workouts, previous sets	Core "after the workout" value 
 Personal Records	Highest weight, estimated 1RM, highest volume	Automatic computation, no manual entry — ties to G4
 Statistics	Workout frequency, weekly volume, streaks, total workouts, exercise frequency	Supports Persona B (Sara) without cluttering the primary flow for Persona A (Ahmed) — see 9.4 on presentation
 Settings	Dark mode, unit preferences, delete account	Baseline expectations for a production app
+
 9.3 Features Requiring a Scoping Decision (Called Out From the Original List)
 Feature	Recommendation	Reasoning
 Export data	Defer to post-V1, unless you object	The brief listed this as "if appropriate for MVP" — it doesn't serve logging, history, or progress directly (fails the 9.1 test), and export formats/destinations (CSV? PDF? email?) add real scope. It's a good V1.1 feature once core logging is proven.
 Streaks (under Statistics)	Include, but as passive display only — not a notification or pressure mechanic	Conflicts on the surface with P6 (no manufactured engagement), but a passive streak count (like a stat, not a push notification nagging you not to break it) is informational, not manipulative. I'd draw the line at: show it if asked, never push it at the user.
+
 9.4 Statistics Presentation — Simple vs. Expanded
 
 Flagged in Section 7's Design Impact: Ahmed (beginner) and Sara (intermediate) want different depths of stats. Recommendation for V1: a single Statistics screen with a simple default view (frequency, streak, total workouts) and an expandable/secondary section for volume trends and exercise-frequency breakdowns. This avoids building two separate screens (added complexity, P8) while still respecting P1's "don't overload the primary experience" for Ahmed-like users.
@@ -32,3 +34,4 @@ Open Question: Should experience level (from Section 6.2/Profile) auto-adjust wh
 9.5 Explicitly Out of MVP Scope
 
 Deferred to Section 10 (Explicit Non-Goals) for the full list and reasoning — this section only covers features that were in the original "Planned V1 Features" list but didn't make the cut (Export Data, per 9.3).
+
