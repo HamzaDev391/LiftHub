@@ -1,313 +1,335 @@
 # 🏋️ LiftHub
 
-> **A fast, clean, and reliable workout tracker built for everyday gym-goers.**
+> **A smarter way to manage gyms, trainers, and fitness operations.**
 
-LiftHub is a cross-platform fitness application designed to help gym-goers track workouts, monitor progress, and stay consistent with their training.
+LiftHub is an Android-based gym management application designed to simplify and centralize the daily operations of fitness centers.
 
-Instead of trying to become an all-in-one fitness platform, LiftHub focuses on doing one thing exceptionally well: providing the fastest and simplest workout logging experience possible. Every feature is designed to reduce friction during workouts, making it easier to record sets, track progressive overload, and review long-term progress.
+The platform provides gym owners and managers with tools to manage members, memberships, payments, attendance, and trainers. Trainers can access their assigned members, manage workout plans, and monitor fitness progress.
 
-LiftHub is being developed as a real production-quality application with an emphasis on thoughtful product design, scalable architecture, maintainable code, and comprehensive documentation.
+Instead of relying on scattered spreadsheets, paper registers, and manual communication, LiftHub aims to bring essential gym operations together in one organized platform.
+
+Built with Flutter and Supabase, LiftHub is being developed with an emphasis on practical problem-solving, maintainable architecture, thoughtful product design, and long-term scalability.
 
 ---
 
 ## 🚧 Project Status
 
-**Current Phase:** Product Planning & Documentation
+**Current Phase:** Phase 0 — Project Concept & Vision
 
 ### Progress
 
-* ✅ Product Requirements Document (PRD) – Complete (First Draft)
-* 🟨 PRD Review & Refinement – In Progress
-* ⬜ Entity Relationship Diagram (ERD)
-* ⬜ System Architecture
-* ⬜ UI/UX Design
-* ⬜ Flutter Development
-* ⬜ Testing & Quality Assurance
-* ⬜ Google Play Store Release
-* ⬜ Apple App Store Release
+- ✅ Initial Project Concept – Complete
+- ⬜ Product Requirements Document (PRD) – Pending Realignment
+- ⬜ Entity Relationship Diagram (ERD)
+- ⬜ System Architecture
+- ⬜ UI/UX Design
+- ⬜ Flutter Development
+- ⬜ Testing & Quality Assurance
+- ⬜ Initial Release
+
+LiftHub is currently in its planning and documentation stage. Application features and backend functionality have not yet been implemented.
 
 ---
 
-# 📖 Overview
+## 📖 Overview
 
-Many gym-goers still rely on notes, spreadsheets, paper notebooks, or memory to track their workouts. As a result, they often lose track of previous performance, struggle to apply progressive overload consistently, and waste valuable time during training sessions.
+Many fitness centers still depend on manual processes to manage their daily operations. Membership records, payment information, attendance, and trainer assignments are often maintained through separate registers, spreadsheets, or disconnected tools.
 
-LiftHub solves this problem by providing a fast and intuitive workout tracker that makes recording workouts effortless while keeping long-term progress organized and easily accessible.
+As a gym grows, these processes become increasingly difficult to maintain, increasing administrative workload and making it harder to keep information organized.
 
-Version 1 focuses exclusively on individual gym members. Future versions are planned to expand the platform with dedicated experiences for personal trainers and gym owners while preserving the simplicity of the core workout tracking experience.
+LiftHub aims to solve this problem through a centralized mobile application that simplifies gym administration and improves coordination between managers and trainers.
 
----
+The initial version focuses on two primary roles:
 
-# 🎯 Mission
+- **Gym Manager:** Oversees gym operations, manages members, memberships, payments, attendance, and trainers.
+- **Trainer:** Manages assigned members, creates workout plans, and monitors fitness progress.
 
-**Help people train consistently by making workout tracking effortless.**
-
----
-
-# 💡 Product Philosophy
-
-Every product decision follows a simple principle:
-
-> **Do one thing exceptionally well instead of ten things poorly.**
-
-Rather than competing by adding countless features, LiftHub prioritizes:
-
-* ⚡ Speed during workouts
-* 🎯 Minimal taps and interactions
-* 📈 Progressive overload
-* 📊 Meaningful training insights
-* 🔒 Reliable long-term workout history
-* 🎨 Clean and intuitive user experience
-
-Whenever multiple solutions exist, the simplest solution that provides the best user experience is preferred.
+Members will exist as records within the system but will not have individual accounts or a dedicated interface in the initial version.
 
 ---
 
-# 🏗️ Long-Term Vision
+## 🎯 Mission
 
-LiftHub is being built as the foundation of a larger fitness ecosystem.
-
-The long-term vision includes support for three primary roles:
-
-* **Member** – Track workouts, monitor progress, and build consistency.
-* **Trainer** – Manage clients, assign workout plans, and monitor performance.
-* **Gym Owner** – Manage members, trainers, attendance, memberships, equipment, and business analytics.
-
-Only the **Member** experience is included in Version 1. Trainer and Gym Owner functionality are intentionally planned for future releases.
+**Simplify gym management through an organized, accessible, and reliable digital platform.**
 
 ---
 
-# ⭐ Core Features (Version 1)
+## 💡 Product Philosophy
 
-* Secure authentication
-* Member profile
-* Built-in exercise library
-* Workout templates
-* Workout session logging
-* Workout history
-* Personal records (PRs)
-* Training statistics
-* Settings and preferences
+LiftHub follows a simple principle:
 
-The primary objective of Version 1 is to deliver an exceptional workout tracking experience before expanding into additional fitness domains.
+> **Make essential gym operations easier, more organized, and more efficient.**
 
----
-# 🛠️ Technology Stack
+Product decisions will prioritize:
 
-LiftHub is built using modern technologies selected for cross-platform development, scalability, and long-term maintainability.
+- ⚡ Efficient daily operations.
+- 📋 Organized member and membership records.
+- 💳 Reliable payment management.
+- 📊 Meaningful operational insights.
+- 🤝 Better coordination between managers and trainers.
+- 🎨 Simple and intuitive user experiences.
+- 🔒 Secure handling of application data.
 
-| Layer            | Technology                           |
-| ---------------- | ------------------------------------ |
-| Frontend         | Flutter                              |
-| Language         | Dart                                 |
-| Backend          | Supabase                             |
-| Database         | PostgreSQL                           |
-| Authentication   | Supabase Auth                        |
-| File Storage     | Supabase Storage *(planned)*         |
-| Analytics        | TBD                                  |
-| Local Storage    | TBD                                  |
-| State Management | TBD                                  |
-| Architecture     | TBD *(planned after PRD completion)* |
-
-> The technology stack will evolve as architectural decisions are finalized. Technologies marked as **TBD** are intentionally left undecided to ensure that implementation decisions are driven by product and architecture requirements rather than personal preference.
+The objective is to build a practical management solution rather than an unnecessarily complicated fitness super-app.
 
 ---
 
-# 📚 Documentation
+## 👥 User Roles
 
-LiftHub follows a **documentation-first** development process. Major implementation work begins only after the corresponding documentation has been completed and reviewed.
+LiftHub will initially support two authenticated user roles.
 
-Current documentation includes:
+### 1. Gym Manager
 
-| Document                            | Status                 |
-| ----------------------------------- | ---------------------- |
-| Product Requirements Document (PRD) | ✅ First Draft Complete |
-| Entity Relationship Diagram (ERD)   | 🚧 Planned             |
-| System Architecture                 | 🚧 Planned             |
-| UI/UX Documentation                 | 🚧 Planned             |
-| CHANGELOG                           | ✅ Available            |
-| Decision Log                        | ✅ Included in PRD      |
+The manager has administrative control over gym operations.
 
-The Product Requirements Document serves as the single source of truth for product requirements and business rules.
+Planned responsibilities include:
+
+- Managing member profiles and records.
+- Creating and managing membership plans.
+- Assigning memberships to members.
+- Recording and monitoring payments.
+- Managing attendance records.
+- Managing trainer profiles.
+- Assigning members to trainers.
+- Viewing gym statistics and operational reports.
+
+### 2. Trainer
+
+Trainers are responsible for managing their assigned members and fitness-related activities.
+
+Planned responsibilities include:
+
+- Viewing assigned members.
+- Managing member workout plans.
+- Recording and monitoring attendance.
+- Tracking members' fitness progress.
+- Updating workout-related information.
+
+### Future Expansion
+
+A dedicated Member interface may be introduced in a future version, allowing members to access their membership information, attendance history, workout plans, and fitness progress.
+
+This is intentionally excluded from the initial development scope.
 
 ---
 
-# 📁 Project Structure
+## ⭐ Core Features (Initial Version)
+
+LiftHub's initial version will focus on the following functionality:
+
+| Module | Planned Functionality |
+|---|---|
+| Authentication | Role-based authentication for managers and trainers |
+| Dashboard | Role-specific dashboards and operational summaries |
+| Member Management | Create, update, view, and manage member records |
+| Trainer Management | Manage trainer profiles and assignments |
+| Membership Management | Create plans, assign memberships, and track expirations |
+| Payment Management | Record payments and maintain payment history |
+| Attendance | Record and monitor gym attendance |
+| Workout Management | Create and manage workout plans |
+| Progress Tracking | Monitor assigned members' fitness progress |
+| Reports | View relevant gym statistics and operational insights |
+
+All features are planned and subject to refinement during the requirements and design phases.
+
+---
+
+## 🏗️ Technology Stack
+
+LiftHub uses Flutter for Android application development and Supabase for backend services.
+
+| Layer | Technology |
+|---|---|
+| Frontend | Flutter |
+| Programming Language | Dart |
+| Backend | Supabase |
+| Database | PostgreSQL |
+| Authentication | Supabase Auth |
+| File Storage | Supabase Storage (if required) |
+| State Management | TBD |
+| Architecture | TBD |
+
+Technologies and architectural decisions will be finalized during the system design phase.
+
+---
+
+## 📚 Documentation
+
+LiftHub follows a documentation-first development approach.
+
+Major implementation work will begin after the corresponding requirements, database design, and architecture have been defined and reviewed.
+
+| Document | Status |
+|---|---|
+| Phase 0 – Project Concept & Vision | ✅ Complete |
+| Product Requirements Document (PRD) | 🚧 Requires Realignment |
+| Entity Relationship Diagram (ERD) | ⬜ Planned |
+| System Architecture | ⬜ Planned |
+| UI/UX Documentation | ⬜ Planned |
+| Development Guidelines | ⬜ Planned |
+| CHANGELOG | ✅ Available |
+
+The PRD will serve as the authoritative source of product requirements and business rules once it has been aligned with the finalized project vision.
+
+---
+
+## 📁 Project Structure
 
 ```text
 LiftHub/
-├── android/                 # Android application
-├── ios/                     # iOS application
+├── android/                 # Android application configuration
+├── ios/                     # Flutter-generated iOS platform files
 ├── lib/                     # Flutter source code
 ├── test/                    # Unit and widget tests
 ├── assets/                  # Images, icons, fonts, and other assets
 ├── docs/
 │   ├── PRD/                 # Product Requirements Document
 │   ├── CHANGELOG.md         # Project evolution
-│   └── ...                  # Future architecture and design documents
+│   └── ...                  # Future design and architecture documents
 ├── pubspec.yaml
 ├── README.md
 └── LICENSE
 ```
 
-As the project grows, additional documentation directories will be introduced for architecture, database design, UI/UX, API references, and development guidelines.
+The initial release targets Android. The presence of Flutter-generated platform directories does not imply that an iOS release is currently planned.
+
+The documentation structure will expand as database design, architecture, and UI/UX specifications are introduced.
 
 ---
 
-# 🗺️ Development Roadmap
+## 🗺️ Development Roadmap
 
-LiftHub is being developed in clearly defined phases to ensure a solid engineering foundation before implementation.
+LiftHub will be developed incrementally through clearly defined phases.
 
-| Phase                             | Status                   |
-| --------------------------------- | ------------------------ |
-| Product Requirements Document     | ✅ Complete (First Draft) |
-| PRD Review & Refinement           | 🚧 In Progress           |
-| Entity Relationship Diagram (ERD) | ⏳ Planned                |
-| System Architecture               | ⏳ Planned                |
-| UI/UX Design                      | ⏳ Planned                |
-| Flutter Development               | ⏳ Planned                |
-| Testing & Quality Assurance       | ⏳ Planned                |
-| Beta Testing                      | ⏳ Planned                |
-| Play Store Release                | ⏳ Planned                |
-| App Store Release                 | ⏳ Planned                |
+| Phase | Description | Status |
+|---|---|---|
+| Phase 0 | Project Concept & Vision | ✅ Complete |
+| Phase 1 | Product Requirements & Analysis | ⏳ Planned |
+| Phase 2 | Database Design (ERD) | ⏳ Planned |
+| Phase 3 | System Architecture | ⏳ Planned |
+| Phase 4 | UI/UX Design | ⏳ Planned |
+| Phase 5 | Flutter Development | ⏳ Planned |
+| Phase 6 | Testing & Quality Assurance | ⏳ Planned |
+| Phase 7 | Beta Testing & Initial Release | ⏳ Planned |
 
-Each phase builds upon the previous one, reducing technical debt and ensuring that implementation decisions are guided by well-defined product and architectural documentation.
+Each phase builds upon the previous one to ensure that implementation decisions are supported by clearly defined requirements and architectural foundations.
 
 ---
 
-# 🎯 Development Principles
+## 🎯 Initial Version Scope
 
-The project follows a set of engineering principles intended to keep LiftHub maintainable as it grows.
-
-* Documentation before implementation.
-* Simplicity over unnecessary complexity.
-* Build one feature well before adding the next.
-* Prioritize user experience during active workouts.
-* Design for future scalability without overengineering Version 1.
-* Write maintainable, well-structured, and testable code.
-* Treat long-term maintainability as a feature.
-
-These principles guide both technical and product decisions throughout the project's lifecycle.
-
----
-# 🏛️ Engineering Practices
-
-LiftHub is being developed using software engineering practices commonly found in professional production environments rather than as a typical tutorial or academic project.
-
-The goal is to create a codebase that is scalable, maintainable, and easy for future contributors to understand.
-
-Development emphasizes:
-
-* Product-driven development
-* Documentation-first planning
-* Modular architecture
-* Separation of concerns
-* Consistent coding standards
-* Incremental feature development
-* Version control best practices
-* Continuous documentation
-
-As the project evolves, additional engineering practices—including automated testing, CI/CD, code quality analysis, and performance monitoring—will be introduced.
-
----
-
-# 🎯 Version 1 Scope
-
-Version 1 focuses exclusively on delivering the best possible workout tracking experience for individual gym members.
+The initial version focuses on delivering a functional gym management solution with two user roles.
 
 ### Included
 
-* Member authentication
-* User profile
-* Exercise library
-* Workout templates
-* Workout session logging
-* Workout history
-* Personal records (PRs)
-* Training statistics
-* Settings
+- Manager and Trainer authentication.
+- Role-based access and interfaces.
+- Gym dashboard.
+- Member record management.
+- Trainer management.
+- Membership plans and assignments.
+- Payment records.
+- Attendance management.
+- Trainer-member assignments.
+- Workout plan management.
+- Fitness progress monitoring.
+- Basic operational reports.
 
 ### Explicitly Excluded
 
-The following features are intentionally outside the scope of Version 1:
+The following features are outside the initial version's scope:
 
-* AI workout generation
-* Nutrition tracking
-* Meal planning
-* Water tracking
-* Sleep tracking
-* Social features
-* Messaging
-* Friends
-* Challenges
-* Premium subscriptions
-* Trainer dashboard
-* Gym management
-* Wearable integration
-* Smartwatch support
-* Business analytics
+- Individual Member accounts and interfaces.
+- Social networking and community features.
+- Messaging and communication systems.
+- AI-powered workout generation.
+- Nutrition and meal planning.
+- Water and sleep tracking.
+- Wearable and smartwatch integration.
+- Online payment gateway integration.
+- Multi-branch gym management.
+- Advanced business intelligence and analytics.
 
-Keeping the MVP focused allows development effort to be concentrated on delivering an exceptional workout tracking experience rather than a large collection of partially implemented features.
+These exclusions help keep the initial implementation focused and achievable.
 
 ---
 
-# 🚀 Future Vision
+## 🔮 Future Vision
 
-LiftHub is designed to evolve into a complete fitness platform while preserving the simplicity of its core experience.
+LiftHub is designed with room for future expansion without making the initial version unnecessarily complex.
 
-The planned long-term evolution is:
+Potential future improvements include:
 
-### Phase 1 — Member (Version 1)
+- Dedicated Member accounts and interfaces.
+- Member self-service functionality.
+- Online membership renewals and payments.
+- Multi-branch gym support.
+- Advanced business analytics.
+- Equipment and inventory management.
+- Automated membership reminders.
+- Additional integrations and reporting capabilities.
 
-Deliver a fast, reliable, and intuitive workout tracker.
-
-### Phase 2 — Trainer
-
-Enable trainers to manage clients, assign workout plans, monitor progress, and provide coaching through the platform.
-
-### Phase 3 — Gym Owner
-
-Expand LiftHub into a comprehensive gym management platform supporting memberships, attendance, trainers, equipment, and business analytics.
-
-Each phase builds upon the previous one without compromising the experience of existing Members.
+Future features will be evaluated based on actual user needs and the stability of the existing system.
 
 ---
 
-# 🤝 Contributing
+## 🛠️ Development Principles
 
-Although LiftHub is currently developed by a single maintainer, the project is structured to support future collaboration.
+The project follows these engineering principles:
 
-Contributors will be expected to:
+- Documentation before implementation.
+- Simplicity over unnecessary complexity.
+- Separation of concerns.
+- Modular and maintainable code.
+- Secure authentication and authorization.
+- Database consistency and integrity.
+- Incremental feature development.
+- Testing alongside implementation.
+- Avoiding premature optimization and overengineering.
 
-* Follow documented architecture and design decisions.
-* Maintain consistent coding standards.
-* Keep documentation synchronized with implementation.
-* Submit focused and well-documented pull requests.
-* Preserve the project's simplicity-first philosophy.
-
-Contribution guidelines will be expanded as the project matures.
-
----
-
-# 📈 Current Progress
-
-| Area                          | Status                   |
-| ----------------------------- | ------------------------ |
-| Product Vision                | ✅ Complete               |
-| Product Requirements Document | ✅ Complete (First Draft) |
-| Product Review                | 🚧 In Progress           |
-| Database Design (ERD)         | ⏳ Planned                |
-| System Architecture           | ⏳ Planned                |
-| UI/UX Design                  | ⏳ Planned                |
-| Flutter Development           | ⏳ Planned                |
-| Testing                       | ⏳ Planned                |
-| Production Release            | ⏳ Planned                |
-
-Development is intentionally progressing from **planning → architecture → implementation**, ensuring that major technical decisions are made before code is written.
+The objective is to build a reliable application that can evolve without becoming difficult to maintain.
 
 ---
 
-# 📄 License
+## 🏛️ Engineering Practices
+
+LiftHub is intended to follow professional software engineering practices throughout its development.
+
+Development will emphasize:
+
+- Requirements analysis and documentation.
+- Database normalization and relational integrity.
+- Role-based access control.
+- Maintainable application architecture.
+- Consistent coding standards.
+- Version control using Git and GitHub.
+- Unit, widget, and integration testing.
+- Code quality analysis.
+- Continuous documentation.
+
+Additional practices, including CI/CD and automated deployment, may be introduced as the project matures.
+
+---
+
+## 🤝 Contributing
+
+LiftHub is currently being developed as an individual project.
+
+Although contributions are not the primary focus at this stage, the project structure is intended to support future collaboration.
+
+Potential contributors will be expected to:
+
+- Follow documented architecture and design decisions.
+- Maintain consistent coding standards.
+- Keep documentation synchronized with implementation.
+- Submit focused and properly documented pull requests.
+- Prioritize maintainability and simplicity.
+
+Contribution guidelines may be expanded as the project develops.
+
+---
+
+## 📄 License
 
 This project is licensed under the **MIT License**.
 
@@ -315,75 +337,33 @@ See the `LICENSE` file for details.
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Muhammad Hamza**
 
 Computer Science Undergraduate • Flutter Developer • Linux Enthusiast
 
-LiftHub is being developed as a long-term production project focused on modern software engineering practices, thoughtful product design, and building a reliable fitness application that people can trust for years of training.
+LiftHub is an individual development project focused on applying software engineering principles to solve a practical business problem.
 
-If you find this project interesting, consider following its progress as new documentation, architecture, and features are released.
-
----
-
-# 🌟 Why LiftHub?
-
-Fitness applications often attempt to solve every problem at once—workouts, nutrition, sleep, hydration, social networking, coaching, and countless other features.
-
-LiftHub takes a different approach.
-
-Its primary objective is to become the fastest, simplest, and most reliable workout tracker for everyday gym-goers.
-
-Every feature, design decision, and engineering trade-off is evaluated against a single question:
-
-> **Does this make workout tracking faster, easier, or more valuable for the Member?**
-
-If the answer is **no**, it does not belong in Version 1.
-
-By maintaining this discipline, LiftHub aims to deliver an exceptional experience instead of becoming another feature-heavy fitness application.
+The project provides an opportunity to explore mobile application development, backend integration, database management, system architecture, and product design through the development of a real-world application.
 
 ---
 
-# 📅 Project Timeline
+## 🌟 Why LiftHub?
 
-| Milestone                           | Status                   |
-| ----------------------------------- | ------------------------ |
-| Product Vision                      | ✅ Complete               |
-| Product Requirements Document (PRD) | ✅ Complete (First Draft) |
-| PRD Review & Refinement             | 🚧 In Progress           |
-| Entity Relationship Diagram (ERD)   | ⏳ Planned                |
-| System Architecture                 | ⏳ Planned                |
-| UI/UX Design                        | ⏳ Planned                |
-| Flutter Development                 | ⏳ Planned                |
-| Alpha Testing                       | ⏳ Planned                |
-| Beta Release                        | ⏳ Planned                |
-| Version 1.0 Release                 | ⏳ Planned                |
+Running a gym involves much more than providing equipment and workout space.
 
-This timeline will be updated as LiftHub progresses from planning to production.
+Behind every fitness center are memberships, payments, attendance records, trainer assignments, and numerous administrative responsibilities.
 
----
+When these operations depend on disconnected tools and manual processes, managing a growing gym becomes increasingly difficult.
 
-# 🙌 Acknowledgements
+LiftHub aims to bring these essential operations together in one accessible platform.
 
-LiftHub is more than a portfolio project.
+Rather than building an application overloaded with unrelated fitness features, LiftHub focuses on solving a specific problem:
 
-It is an opportunity to apply product thinking, software architecture, system design, and modern Flutter development practices while building a real application intended for long-term maintenance and public release.
+> **How can gym owners and trainers manage their responsibilities more efficiently through one centralized application?**
 
-Every document, design decision, and implementation is treated as part of a professional software engineering process rather than an academic exercise.
-
----
-
-## ⭐ Support the Project
-
-If you find LiftHub interesting or useful:
-
-* ⭐ Star the repository
-* 🐛 Report bugs or suggest improvements
-* 💡 Share ideas through GitHub Issues
-* 🍴 Fork the project to experiment with new ideas
-
-Community feedback will play an important role as LiftHub continues to evolve.
+That is the problem LiftHub aims to solve.
 
 ---
 
@@ -391,11 +371,10 @@ Community feedback will play an important role as LiftHub continues to evolve.
 
 ### 🏋️ LiftHub
 
-**Built with Flutter • Powered by Supabase • Designed for consistency**
+**Built with Flutter • Powered by Supabase**
 
-*"Train smarter. Track better. Stay consistent."*
+*"Manage smarter. Train better. Grow together."*
 
 © 2026 Muhammad Hamza. All rights reserved.
 
 </div>
-
